@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+<h2>Edit book in library</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <label>Book name:- </label>
+    <input type = "text" name="nm" value = "{{single_book.name}}" required><br><br>
+
+    <label>Book Price:- </label>
+    <input type = "number" name="price" value = "{{single_book.price}}" required><br><br>
+
+    <label>Book Qty:- </label>
+    <input type = "number" name="qty" value = "{{single_book.qty}}"required><br><br>
+
+    <label>Is_published:- </label>
+    <!-- <input type = "radio" name="is_pub"><br><br> -->
+
+    {% if single_book.is_published %}
+        Yes:- <input type = "radio" value = "YES" name="is_pub" checked>&nbsp;&nbsp;
+        No:- <input type = "radio" value = "NO" name="is_pub" >
+    {% else %}
+    Yes:- <input type = "radio" value = "YES" name="is_pub" >&nbsp;&nbsp;
+        No:- <input type = "radio" value = "NO" name="is_pub" checked>
+    {% endif %}
+
+    <input type = "submit" class =" btn btn-primary"><br><br>
+
+</form>
+
+{% endblock %}

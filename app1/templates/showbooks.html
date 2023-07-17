@@ -1,0 +1,83 @@
+<html>
+{% load static %}
+<head>
+    <title>Library application</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+</head>
+
+<body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home_page'%}">Home page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'show_books'%}">show_book</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"> Logged in as -{{user}}</a>
+                </li>             
+                <!-- </ul>                 -->
+            </div>
+            </div>
+        </nav>
+        {{user}}    
+    <h2>All Published Books</h2>
+
+    {{today}}<br><hr>
+
+    <!-- {{All_books}} -->
+    
+    <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">QTY</th>
+            <th scope="col">is_published</th>
+            <th scope="col">is_active</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <!-- {% for book in All_books %}
+                {% if book.price == 410 %}
+                    {{book}} -- {{book.price}}<br>
+                {% else %}  
+                    No book <br>  
+                {% endif %}
+            {% endfor %} -->
+            {% for book in All_books%}
+          <tr>      
+            <th  scope="row">{{book.id}}</th>
+            <td >{{book.name}}</td>
+            <td >{{book.price}}</td>
+            <td >{{book.qty}}</td>
+            <td >{{book.is_published}}</td>
+            <td >{{book.is_active}}</td>
+            <td>
+                <a href = "{% url 'show_single_book' book.id %}" class = "btn btn-primary">view</a>
+                <a href = "{% url 'edit_single_book' book.id %}" class = "btn btn-warning">Edit</a>
+
+                <form action="{% url 'delete_single_book' book.id  %}" method = 'POST'>
+                    {% csrf_token %}
+                        <input type="submit" value = "Hrad Delete" class = "btn bt-danger">
+                </form>
+
+                <form action="{% url 'soft_delete_single_book' book.id  %}" method = 'POST'>
+                    {% csrf_token %}
+                        <input type="submit" value = "Soft Delete" class = "btn bt-danger">
+                </form>
+
+
+            
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</body>>
+
+</html>

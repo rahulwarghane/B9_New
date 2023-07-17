@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+<!-- <html>
+{% load static %}
+<head>
+    <title>Library application</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+</head>
+
+<body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home_page'%}">Home page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'show_books'%}">show_book</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"> Logged in as -{{user}}</a>
+                </li>             
+                <!-- </ul>                 -->
+            <!-- </div>
+            </div>
+        </nav>     --> -->
+<h2>Add book in library</h2>
+<!-- </body> -->
+<!-- </html> -->
+
+<form method="POST">
+    {% csrf_token %}
+    <label>Book name:- </label>
+    <input type = "text" name="nm" required><br><br>
+
+    <label>Book Price:- </label>
+    <input type = "number" name="price" required><br><br>
+
+    <label>Book Qty:- </label>
+    <input type = "number" name="qty" required><br><br>
+
+    <label>Is_published:- </label>
+    <!-- <input type = "radio" name="is_pub"><br><br> -->
+
+    Yes:- <input type = "radio" value = "YES" name="is_pub" class =" btn btn-primary"checked>&nbsp;&nbsp;
+    No:- <input type = "radio" value = "NO" name="is_pub" class =" btn btn-primary">
+
+    <input type = "submit" class =" btn btn-primary">
+
+</form>
+
+{% endblock %}

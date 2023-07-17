@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+<!-- <html>
+{% load static %}
+<head>
+    <title>Library application</title>
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+</head>
+
+<body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home_page'%}">Home page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'show_books'%}">show_book</a>
+                </li>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'add_single_book'%}">add book</a>
+            </li>             
+                </ul>                
+            </div>
+            </div>
+        </nav>
+    <hr> -->
+{% block content %}    
+    <h2>Welcome to library application</h2>
+    <h5>This application is for testing purpose</h5>
+{% endblock %}     
+</body>
+
+</html>

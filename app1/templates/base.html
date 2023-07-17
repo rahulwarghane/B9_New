@@ -1,0 +1,37 @@
+<html>
+{% load static %}
+<head>
+    <title>Library application</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+</head>
+
+<body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home_page'%}">Home page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'show_books'%}">Show_Active_Book</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'add_single_book'%}">Add_Book</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"> Logged in as -{{user}}</a>
+                </li>             
+                <!-- </ul>                 -->
+            </div>
+            </div>
+        </nav> 
+        
+        <div class=" container">
+        {% block content %}
+        {% endblock %}  
+         </div>
+
+</body>
+
+</html>
